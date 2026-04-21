@@ -1,4 +1,4 @@
-# Flashcard System
+# Flashcard System (F.CSA311 Assignment)
 
 Interactive command-line flashcard learning system built with Java and Maven.
 
@@ -45,33 +45,30 @@ java -jar target/flashcard-1.0-SNAPSHOT.jar sample-cards.txt --order recent-mist
 Plain text file with `Q:` and `A:` prefixes. Lines starting with `#` are comments.
 
 ```
-# This is a comment
+# comment
 Q: What is 2 + 2?
 A: 4
 
 Q: Capital of Mongolia?
 A: Ulaanbaatar
-```
 
 ## Achievements
 
-| Achievement | Condition |
-|-------------|-----------|
-| SPEEDY      | Average response time under 5 seconds per round |
-| CORRECT     | All cards answered correctly in a round |
-| REPEAT      | One card answered more than 5 times total |
-| CONFIDENT   | One card answered correctly 3+ times consecutively |
+Achievement    Condition 
+
+ SPEEDY      -> Average response time under 5 seconds per round |
+ CORRECT     -> All cards answered correctly in a round |
+ REPEAT      -> One card answered more than 5 times total 
+ CONFIDENT   -> One card answered correctly 3+ times consecutively |
 
 ## Architecture
 
-| Class | Role |
-|-------|------|
-| `FlashCard` | Card model with attempt tracking |
-| `CardOrganizer` | Interface for card ordering strategies |
-| `RandomSorter` | Shuffles cards randomly |
-| `WorstFirstSorter` | Sorts by lowest correct ratio first |
-| `RecentMistakesFirstSorter` | Recent wrong answers come first |
-| `CardLoader` | Parses cards from file |
-| `FlashCardSession` | Manages rounds and user interaction |
-| `AchievementTracker` | Evaluates and reports achievements |
-| `Main` | CLI entry point |
+FlashCard → stores question, answer, and statistics
+CardOrganizer → interface for different ordering strategies
+RandomSorter → random order
+WorstFirstSorter → most incorrect cards first
+RecentMistakesFirstSorter → recently wrong cards first
+CardLoader → loads cards from file
+FlashCardSession → handles learning loop
+AchievementTracker → checks achievements
+Main → entry point (CLI)
